@@ -96,8 +96,19 @@ fi
 
 eval "$(mise activate zsh)"
 
+# use mise exec for some commands
+if ! command -v btop &>/dev/null; then 
+  alias btop="mise x btop@latest -- btop --force-utf"
+fi
+
+if ! command -v lazygit &>/dev/null; then 
+  alias lazygit="mise x lazygit@latest -- lazygit"
+fi
+
+# defaults
 export EDITOR=nvim
 
+# aliases
 type exa &>/dev/null && alias ls='exa --git'
 
 alias j=z
@@ -112,10 +123,6 @@ alias more=view
 alias ag=rga
 alias cld=claude
 alias cldt=claude-trace
-
-if ! command -v btop &>/dev/null; then 
-  alias btop="mise x btop@latest -- btop --force-utf"
-fi
 
 # copilot for cli
 alias \?\?="gh copilot suggest -t shell"
