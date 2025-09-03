@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # install mise
 if ! command -v "mise" >/dev/null 2>&1; then
