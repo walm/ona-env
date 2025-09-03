@@ -19,6 +19,13 @@ if ! command -v "nvim" >/dev/null 2>&1; then
   mise use -g neovim@latest
 fi
 
+# install ripgrep
+if ! command -v "rg" >/dev/null 2>&1; then
+  mise plugin add ripgrep
+  mise install ripgrep@latest
+  mise use -g ripgrep@latest
+fi
+
 # install lazyvim
 if [[ ! -f ~/.config/nvim/lazyvim.json ]]; then
   mv ~/.config/nvim{,.bak}
