@@ -50,6 +50,12 @@ if [[ ! -f ~/miniconda3/bin/activate ]]; then
   conda install -y conda-forge::tmux
 fi
 
+# -- tmux and tpm plugin manager
+if [[ ! -e ~/.tmux/plugins/tpm ]]; then
+  echo "Installing tmux tpm ..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 # install atuin.sh
 if ! command -v "atuin" >/dev/null 2>&1; then
   bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
@@ -70,5 +76,5 @@ if [[ ! -f ~/antigen.zsh ]]; then
   curl -L git.io/antigen >~/antigen.zsh
 fi
 
-# setup dotfiles
 ./copy-dotfiles.sh
+# setup dotfiles
